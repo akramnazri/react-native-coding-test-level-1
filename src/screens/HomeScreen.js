@@ -12,6 +12,11 @@ const HomeScreen = ({navigation}) => {
       } >
                   <Text style={styles.buttonText}>Contact Us</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() =>
+        navigation.navigate('View Catalog')
+      } >
+                  <Text style={styles.buttonText}>View Catalog</Text>
+      </TouchableOpacity>
     </View>
   );
 }
