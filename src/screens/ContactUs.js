@@ -1,6 +1,4 @@
 import {useState} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Pressable, Modal } from 'react-native';
 import * as Yup from "yup";
 import { Formik } from 'formik';
@@ -8,6 +6,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 const ContactUs = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
+  
 // this is for validation
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -32,7 +31,7 @@ const ContactUs = ({navigation}) => {
         >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched, setFieldValue, isValid }) => (
         <>
-
+        {/* username input  */}
             <Text style={styles.label}>Username :</Text>
             <TextInput
                 name="username"
@@ -46,7 +45,8 @@ const ContactUs = ({navigation}) => {
             {(errors.username && touched.username) &&
             <Text style={{ fontSize: 10, color: 'red' }}>{errors.username}</Text>
             }
-
+            
+            {/* email input */}
             <Text style={styles.label}>Email :</Text>   
             <TextInput
                 name="email"
@@ -62,6 +62,7 @@ const ContactUs = ({navigation}) => {
             }
 
          
+            {/* birthdate input */}
             <Text style={styles.label}>Date of Birth :</Text>
             <DateTimePicker
                 style={styles.datePicker}
@@ -75,6 +76,7 @@ const ContactUs = ({navigation}) => {
                 <Text style={{ fontSize: 10, color: 'red' }}>{errors.birthdate}</Text>
             }       
 
+            {/* modal view user detail */}
             <View style={styles.centeredView}>
                 <Modal
                     animationType="slide"
